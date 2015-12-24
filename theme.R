@@ -67,7 +67,7 @@ theme(legend.background = element_rect(fill=background.color)) +
   theme(legend.key = element_rect(colour = background.color)) + 
   theme(legend.direction = "horizontal", legend.position = "bottom")
 
-#color presets so I dont need to remember exact names or hex codes----
+#single color presets so I dont need to remember exact names or hex codes----
 blue <- "dodgerblue"
 blue.gray <- "#92B8B9"
 light.blue <- "#53BFD6"
@@ -88,12 +88,25 @@ gray <- "#6B6F65"
 light.gray <- "#84877D"
 black <- "#29251F"
 
+#scale_colour/scale_fill pallettes from ggthemes----
+scale_colour_calc()
+scale_colour_colorblind()
+scale_colour_economist()
+scale_colour_excel()
+scale_colour_few()
+scale_colour_gdocs()
+scale_colour_hc()
+scale_colour_solarized()
+scale_colour_stata()
+scale_colour_tableau()
+scale_colour_pander()
+
 #Some examples----
 library(datasets)
 View(Orange)
 
 (barplot <- ggplot(Orange, aes(x=Tree, y=circumference, fill = Tree)) + geom_bar(stat="identity", alpha = transparency) + 
-  scale_fill_manual(values = c(blue, blue, blue, blue, blue)) + 
+  scale_fill_manual(values = c(dark.purple, gray, light.gray, purple, black)) + 
   labs(x="\nTree", y="Age\n", title = "Age of Trees\n") + theme_bg + guides(fill = FALSE) + 
   geom_hline(yintercept=0,size=1.2,colour="#535353") + 
   theme(plot.margin = unit(c(1, 1, .5, .7), "cm")))
@@ -105,3 +118,4 @@ View(Orange)
   theme(legend.background = element_rect(fill=background)) + 
   theme(legend.key = element_rect(colour = background)) + 
   theme(legend.direction = "horizontal", legend.position = "bottom"))
+
